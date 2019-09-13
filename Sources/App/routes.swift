@@ -22,4 +22,9 @@ public func routes(_ router: Router) throws {
     router.get("welcome") { req -> Future<View> in
       return try req.view().render("welcome")
     }
+
+    router.get("whoami") { req -> Future<View> in
+      let user = User(name: "Saul", email: "93sauu@gmail.com", passwordHash: ".....")
+      return try req.view().render("whoami", user)
+    }
 }
