@@ -1,6 +1,7 @@
 import Authentication
 import FluentSQLite
 import Vapor
+import Leaf
 
 /// Called before your application initializes.
 public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
@@ -29,14 +30,19 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     databases.add(database: sqlite, as: .sqlite)
     services.register(databases)
 
-    /// Configure migrations
+    // Configure migrations
     var migrations = MigrationConfig()
     migrations.add(model: User.self, database: .sqlite)
     migrations.add(model: UserToken.self, database: .sqlite)
     migrations.add(model: Todo.self, database: .sqlite)
     services.register(migrations)
 
-    /// Server config
+    // Configure Leaf as view renderer
+    let leafProvider = LeafProvider()
+    try services.register(leafProvider)
+    config.prefer(LeafRenderer.self, for: ViewRenderer.self)
+
+    // Server config
     let myService = NIOServerConfig.default(port: 8080)
     services.register(myService)
 }

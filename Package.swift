@@ -12,9 +12,12 @@ let package = Package(
         
         // 👤 Authentication and Authorization layer for Fluent.
         .package(url: "https://github.com/vapor/auth.git", from: "2.0.0"),
+
+        // 🍃 An expressive, performant, and extensible templating language
+        .package(url: "https://github.com/vapor/leaf.git", from: "3.0.0"),
     ],
     targets: [
-        .target(name: "App", dependencies: ["Authentication", "FluentSQLite", "Vapor"]),
+        .target(name: "App", dependencies: ["Authentication", "FluentSQLite", "Vapor", "Leaf"]),
         .target(name: "Run", dependencies: ["App"]),
         .testTarget(name: "AppTests", dependencies: ["App"])
     ]

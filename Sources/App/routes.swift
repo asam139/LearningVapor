@@ -17,4 +17,9 @@ public func routes(_ router: Router) throws {
     bearer.get("todos", use: todoController.index)
     bearer.post("todos", use: todoController.create)
     bearer.delete("todos", Todo.parameter, use: todoController.delete)
+
+    // Views
+    router.get("welcome") { req -> Future<View> in
+      return try req.view().render("welcome")
+    }
 }
