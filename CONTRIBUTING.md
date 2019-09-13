@@ -1,6 +1,6 @@
-# Contributing to Vapor API Template
+# Contributing to Vapor Auth Template
 
-If you found a mistake or think of a cool new feature, please [create an issue](https://github.com/vapor/api-template/issues/new) or, if you want to implement it yourself, [fork this repo](https://github.com/vapor/api-template/fork) and open a Pull Request!
+If you found a mistake or think of a cool new feature, please [create an issue](https://github.com/vapor/auth-template/issues/new) or, if you want to implement it yourself, [fork this repo](https://github.com/vapor/auth-template/fork) and open a Pull Request!
 
 We'll take a look as soon as we can.
 
